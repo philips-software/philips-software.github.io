@@ -6,13 +6,14 @@ import {
   CardActionArea,
   CardActions,
   CardContent,
+  Avatar,
   makeStyles,
   Typography,
 } from '@material-ui/core';
 import { formatDistance } from 'date-fns';
 import Octicon, { Person, RepoForked, Star } from '@primer/octicons-react';
 import Grid from '@material-ui/core/Grid';
-
+import * as CodeIcons from './CodeIcons';
 const useStyles = makeStyles(theme => ({
   card: { height: '100%', display: 'flex', flexDirection: 'column' },
   cardContent: { flexGrow: 1 },
@@ -22,6 +23,14 @@ const useStyles = makeStyles(theme => ({
     textOverflow: 'ellipsis',
   },
 }));
+
+const renderCodeIcon = lang => {
+  const Icon = CodeIcons[lang];
+  if (Icon) {
+    return <Icon width={32} height={32} />;
+  }
+  return null;
+};
 
 const Repositories = props => {
   const classes = useStyles();
@@ -49,15 +58,7 @@ const Repositories = props => {
                     Updated{' '}
                     {formatDistance(new Date(node.updatedAt), new Date())} ago
                   </Typography>
-                  {node.primaryLanguage && (
-                    <Typography
-                      gutterBottom
-                      color="textSecondary"
-                      variant="body2"
-                    >
-                      {node.primaryLanguage.name}
-                    </Typography>
-                  )}
+                  <Avatar>{renderCodeIcon(node.primaryLanguage && node.primaryLanguage.name)}</Avatar>
                   <Typography className={classes.description}>
                     {node.description}
                   </Typography>

@@ -33,6 +33,7 @@ const ProjectsPage = ({ data, ...props }) => {
     });
   }, [selectedLanguages, filter, reset]);
 
+  console.log(languages);
   return (
     <Layout>
       <SEO title="Projects" />
