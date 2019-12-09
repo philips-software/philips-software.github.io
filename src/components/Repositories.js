@@ -58,7 +58,11 @@ const Repositories = props => {
                     Updated{' '}
                     {formatDistance(new Date(node.updatedAt), new Date())} ago
                   </Typography>
-                  <Avatar>{renderCodeIcon(node.primaryLanguage && node.primaryLanguage.name)}</Avatar>
+                  <Avatar>
+                    {renderCodeIcon(
+                      node.primaryLanguage && node.primaryLanguage.name,
+                    )}
+                  </Avatar>
                   <Typography className={classes.description}>
                     {node.description}
                   </Typography>

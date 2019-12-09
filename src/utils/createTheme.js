@@ -3,7 +3,7 @@ import { createMuiTheme } from '@material-ui/core';
 const createTheme = () =>
   createMuiTheme({
     typography: {
-      fontFamily: 'CentraleSans, tahoma, sans-serif',
+      fontFamily: 'centrale_sans, CentraleSans, tahoma, sans-serif',
       button: {
         textTransform: 'none',
         fontSize: 16,
