@@ -46,7 +46,9 @@ const Teams = props => {
   return (
     <Grid container spacing={4}>
       {data &&
-        data.map(node => (
+        data
+          .filter(node => node.repositories.totalCount > 0)
+          .map(node => (
           <Grid item xs={12} md={6} lg={4} key={node.id}>
             <Card className={classes.card}>
               <CardActionArea

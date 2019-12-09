@@ -38,7 +38,9 @@ const Repositories = props => {
   return (
     <Grid container spacing={4}>
       {data &&
-        data.map(node => (
+        data
+          .filter(node => node.isPrivate === false)
+          .map(node => (
           <Grid item xs={12} md={6} lg={4} key={node.id}>
             <Card className={classes.card}>
               <CardActionArea
@@ -62,6 +64,7 @@ const Repositories = props => {
                   <Typography className={classes.description}>
                     {node.description}
                   </Typography>
+
                   {/*<div>{collaborators.totalCount}</div>*/}
                 </CardContent>
               </CardActionArea>
@@ -110,5 +113,6 @@ export const query = graphql`
       name
       color
     }
+    isPrivate
   }
 `;
