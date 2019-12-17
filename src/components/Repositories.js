@@ -80,10 +80,7 @@ const Repositories = props => {
                   {node.stargazers.totalCount}
                 </Button>
                 <Button endIcon={<Octicon icon={RepoForked} />}>
-                  {node.stargazers.totalCount}
-                </Button>
-                <Button endIcon={<Octicon icon={Person} />}>
-                  {node.stargazers.totalCount}
+                  {node.forks.totalCount}
                 </Button>
               </CardActions>
             </Card>
