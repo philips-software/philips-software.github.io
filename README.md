@@ -10,3 +10,7 @@ yarn
 # develop
 yarn start
 ```
+
+# License
+
+MIT
