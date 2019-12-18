@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    name: Build and publish gatsby site
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -17,3 +18,15 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@master
+      env:
+        SLACK_CHANNEL: landing-page-publish-error
+        SLACK_COLOR: '#3278BD'
+        SLACK_MESSAGE: 'Published OSS landing page :rocket:'
+        SLACK_TITLE: OSS landing page
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
