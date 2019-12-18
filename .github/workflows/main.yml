@@ -19,7 +19,7 @@ jobs:
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
       - name: Slack Notification
-        if: successs()
+        if: success()
         uses: rtCamp/action-slack-notify@master
         env:
           SLACK_CHANNEL: landing-page-publish-error
