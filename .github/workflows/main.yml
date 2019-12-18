@@ -18,17 +18,13 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
-  slackNotification:
-    name: Slack Notification
-    if: success()
-    runs-on: ubuntu-latest
-    steps:
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@master
-      env:
-        SLACK_CHANNEL: landing-page-publish-error
-        SLACK_COLOR: '#3278BD'
-        SLACK_MESSAGE: 'Published OSS landing page :rocket:'
-        SLACK_TITLE: OSS landing page
-        SLACK_USERNAME: Github
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      - name: Slack Notification
+        if: successs()
+        uses: rtCamp/action-slack-notify@master
+        env:
+          SLACK_CHANNEL: landing-page-publish-error
+          SLACK_COLOR: '#3278BD'
+          SLACK_MESSAGE: 'Published OSS landing page :rocket:'
+          SLACK_TITLE: OSS landing page
+          SLACK_USERNAME: Github
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
