@@ -8,7 +8,7 @@ In order to make this project to work, you need to provide an environment variab
 
 ### Environment settings
 
-`ACCESS_TOKEN` : Access_token from organization.
+`ACCESS_TOKEN` : Access token from organization with `read:org`, `read:user` and `repo` rights. `Developer Settings > Personal Access Tokens`
 
 ### Install
 ```shell script
