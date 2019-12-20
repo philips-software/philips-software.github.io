@@ -19,12 +19,12 @@ jobs:
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
       - name: Slack Notification
-        if: success()
+        if: failure()
         uses: rtCamp/action-slack-notify@master
         env:
           SLACK_CHANNEL: landing-page-publish-error
-          SLACK_COLOR: '#3278BD'
-          SLACK_MESSAGE: 'Published OSS landing page :rocket:'
-          SLACK_TITLE: OSS landing page
+          SLACK_COLOR: '#ee1111'
+          SLACK_MESSAGE: 'Published OSS landing page went WRONG! :rocket:'
+          SLACK_TITLE: OSS landing page - failed
           SLACK_USERNAME: Github
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
