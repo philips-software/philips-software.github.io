@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - remove-pinned-projects
   schedule:
     - cron:  '0 23 * * *'
 

@@ -76,9 +76,6 @@ const Header = ({ siteTitle }) => {
           {siteTitle}
         </Typography>
         <div className={classes.grow} />
-        <Button component={Link} to="/projects" color="inherit">
-          Projects
-        </Button>
         <Button component={Link} to="/teams" color="inherit">
           Teams
         </Button>
