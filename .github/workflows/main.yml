@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - develop
-      - remove-pinned-projects
+      - add-philips-labs
   schedule:
     - cron:  '0 23 * * *'
 
