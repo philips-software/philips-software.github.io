@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - add-philips-labs
   schedule:
     - cron:  '0 23 * * *'
 

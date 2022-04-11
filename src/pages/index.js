@@ -1,39 +1,54 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-
+import React, { useEffect } from 'react';
 import Layout from '../components/Layout';
+import { graphql } from 'gatsby';
 import SEO from '../components/SEO';
-import MainContainer from '../components/MainContainer';
-import PageHeader from '../components/PageHeader';
-import Repositories from '../components/Repositories';
+import Organization from '../components/Organization';
 
-const IndexPage = ({ data }) => {
-  console.log(data);
+const IndexPage = ({ data, ...props }) => {
   return (
     <Layout>
-      <SEO title="Home" />
-      <PageHeader title="Pinned projects" />
-      <MainContainer>
-        <Repositories data={data.github.organization.pinnedItems.nodes} />
-      </MainContainer>
+      <SEO title="Projects" />
+      <Organization 
+        organization = "philips-software"
+        projects = {data.github.psOrganization.repositories.nodes}
+      />
+      <Organization 
+        organization = "philips-labs"
+        projects = {data.github.plOrganization.repositories.nodes}
+      />
     </Layout>
   );
 };
 
+export default IndexPage;
+
 export const query = graphql`
   {
     github {
-      organization(login: "philips-software") {
-        pinnedItems(first: 10) {
+      psOrganization: organization(login: "philips-software") {
+        repositories(
+          first: 12
+          privacy: PUBLIC
+          isFork: false
+          orderBy: {field: STARGAZERS, direction: DESC}
+        ) {
           nodes {
-            ... on GitHub_Repository {
-              ...Repository
-            }
+            ...Repository
+          }
+        }
+      }
+      plOrganization: organization(login: "philips-labs") {
+        repositories(
+          first: 12
+          privacy: PUBLIC
+          isFork: false
+          orderBy: {field: STARGAZERS, direction: DESC}
+        ) {
+          nodes {
+            ...Repository
           }
         }
       }
     }
   }
 `;
-
-export default IndexPage;
