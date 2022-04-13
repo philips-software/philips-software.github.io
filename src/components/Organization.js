@@ -6,13 +6,12 @@ import Repositories from './Repositories';
 const Organization = props => {
   const { organization, projects } = props;
   return (
-      <div>
-    <PageHeader title={organization}>
-  </PageHeader>
-  <MainContainer>
-    <Repositories data={projects} />
-  </MainContainer>
-  </div>
+    <div>
+      <PageHeader title={organization}></PageHeader>
+      <MainContainer>
+        <Repositories data={projects} />
+      </MainContainer>
+    </div>
   );
 };
 

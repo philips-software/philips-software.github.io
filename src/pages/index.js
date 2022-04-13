@@ -8,13 +8,13 @@ const IndexPage = ({ data, ...props }) => {
   return (
     <Layout>
       <SEO title="Projects" />
-      <Organization 
-        organization = "philips-software"
-        projects = {data.github.psOrganization.repositories.nodes}
+      <Organization
+        organization="philips-software"
+        projects={data.github.psOrganization.repositories.nodes}
       />
-      <Organization 
-        organization = "philips-labs"
-        projects = {data.github.plOrganization.repositories.nodes}
+      <Organization
+        organization="philips-labs"
+        projects={data.github.plOrganization.repositories.nodes}
       />
     </Layout>
   );
@@ -30,7 +30,7 @@ export const query = graphql`
           first: 12
           privacy: PUBLIC
           isFork: false
-          orderBy: {field: STARGAZERS, direction: DESC}
+          orderBy: { field: STARGAZERS, direction: DESC }
         ) {
           nodes {
             ...Repository
@@ -42,7 +42,7 @@ export const query = graphql`
           first: 12
           privacy: PUBLIC
           isFork: false
-          orderBy: {field: STARGAZERS, direction: DESC}
+          orderBy: { field: STARGAZERS, direction: DESC }
         ) {
           nodes {
             ...Repository
