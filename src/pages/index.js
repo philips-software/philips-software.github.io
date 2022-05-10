@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Layout from '../components/Layout';
 import { graphql } from 'gatsby';
 import SEO from '../components/SEO';
@@ -10,10 +10,12 @@ const IndexPage = ({ data, ...props }) => {
       <SEO title="Projects" />
       <Organization
         organization="philips-software"
+        description="Philips-Software is the Open Source environment for Philips"
         projects={data.github.psOrganization.repositories.nodes}
       />
       <Organization
         organization="philips-labs"
+        description="Philips-Labs is the experimental environment for Philips"
         projects={data.github.plOrganization.repositories.nodes}
       />
     </Layout>
