@@ -13,15 +13,15 @@ jobs:
     name: Build and publish gatsby site
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: enriikke/gatsby-gh-pages-action@v2
+      - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e # ratchet:actions/checkout@v1
+      - uses: enriikke/gatsby-gh-pages-action@fbe063b0cfaa8c16ec4e346cc3c48e9b154cce87 # ratchet:enriikke/gatsby-gh-pages-action@v2
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
       - name: Slack Notification
         if: failure()
-        uses: rtCamp/action-slack-notify@master
+        uses: rtCamp/action-slack-notify@c753c78497b021971cf6540efe8c3a131e4b702f # ratchet:rtCamp/action-slack-notify@master
         env:
           SLACK_CHANNEL: landing-page-publish-error
           SLACK_COLOR: '#ee1111'
