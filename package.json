@@ -13,7 +13,7 @@
     "@mdx-js/react": "v1",
     "@primer/octicons-react": "^9.3.1",
     "date-fns": "^2.8.1",
-    "gatsby": "^4.0.0",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-manifest": "^4.0.0",
     "gatsby-plugin-material-ui": "^4.0.0",
